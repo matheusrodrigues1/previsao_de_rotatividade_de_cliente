@@ -1,59 +1,49 @@
 # Projeto de Inteligência Computacional: Predição de Churn em Telecomunicações
 
-## 📌 1. Explicação do Problema (Contexto de Negócio)
+## 📌 Contexto de Negócio
 
-A rotatividade de clientes (*Churn*) é um dos maiores gargalos financeiros de empresas prestadoras de serviços de Telecomunicação. Reter um cliente antigo custa cerca de **5 vezes menos** do que adquirir um cliente novo por meio de campanhas de marketing e publicidade.
+A rotatividade de clientes (*Churn*) é um dos maiores desafios financeiros das empresas de telecomunicações. Reter clientes existentes costuma ser significativamente mais barato do que conquistar novos clientes.
 
-Este projeto implementa um pipeline de Inteligência Computacional utilizando o algoritmo **Random Forest Classifier** para prever se um cliente cancelará ou não o serviço contratado.
+Este projeto utiliza técnicas de Inteligência Computacional e Machine Learning, implementando o algoritmo **Random Forest Classifier** para prever se um cliente possui probabilidade de cancelar o serviço.
 
 ---
 
-## 📊 2. Estrutura do Dataset Utilizado
+## 📂 Estrutura do Projeto
 
-O projeto utiliza uma base de dados que simula cenários reais de mercado, inspirada no dataset **Telco Customer Churn**, contendo as seguintes variáveis:
-
-| Variável | Descrição |
-|----------|------------|
-| `idade` | Idade do cliente |
-| `meses_contrato` | Tempo de permanência do cliente na empresa |
-| `tipo_contrato` | Tipo de faturamento (`Mensal`, `Anual`, `Bienal`) |
-| `cobranca_mensal` | Valor mensal pago pelo cliente |
-| `total_gasto` | Valor total gasto pelo cliente |
-| `gasto_proporcional_tempo` | Total gasto dividido pelos meses ativos |
-| `churn` | Variável alvo: `1` = cancelou o serviço, `0` = permaneceu ativo |
-
-# 🚀 3. Como Executar o Projeto
-
-## Pré-requisitos
-
-- Python 3.10 ou superior instalado;
-- Git (opcional);
-- Terminal ou Prompt de Comando.
-
-Verifique a instalação do Python:
-
-```bash
-python --version
-```
-
-ou
-
-```bash
-python3 --version
+```text
+PROJETO_ML/
+│
+├── .pytest_cache/            # Cache gerado pelo pytest
+├── data/
+│   ├── processed/            # Dados tratados e prontos para treinamento
+│   └── raw/                  # Dados brutos originais
+├── metrics/                  # Métricas e relatórios gerados pelo modelo
+├── models_saved/             # Modelos treinados salvos em disco
+├── src/
+│   ├── evaluation/           # Avaliação do desempenho do modelo
+│   ├── features/             # Engenharia de atributos (Feature Engineering)
+│   ├── ingestion/            # Leitura e carregamento dos dados
+│   ├── models/               # Treinamento e utilização dos modelos
+│   ├── preprocessing/        # Limpeza e pré-processamento dos dados
+│   └── __init__.py
+├── tests/                    # Testes automatizados
+└── venv/                     # Ambiente virtual do projeto
 ```
 
 ---
 
-## Passo 1: Clonar o projeto (opcional)
+# 🚀 Como Executar o Projeto
+
+## 1. Clonar o repositório
 
 ```bash
 git clone <url-do-repositorio>
-cd projeto-churn
+cd PROJETO_ML
 ```
 
 ---
 
-## Passo 2: Criar o Ambiente Virtual (venv)
+## 2. Criar o ambiente virtual
 
 ### Windows
 
@@ -67,19 +57,11 @@ python -m venv venv
 python3 -m venv venv
 ```
 
-Após esse comando, será criada uma pasta chamada:
-
-```text
-venv/
-```
-
-que conterá todas as dependências isoladas do projeto.
-
 ---
 
-## Passo 3: Ativar o Ambiente Virtual
+## 3. Ativar o ambiente virtual
 
-### Windows (Prompt de Comando - CMD)
+### Windows (CMD)
 
 ```bash
 venv\Scripts\activate
@@ -87,17 +69,17 @@ venv\Scripts\activate
 
 ### Windows (PowerShell)
 
-```bash
+```powershell
 .\venv\Scripts\Activate.ps1
 ```
 
-Caso apareça um erro de permissão no PowerShell, execute:
+Caso ocorra erro de permissão:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-Depois:
+Depois execute novamente:
 
 ```powershell
 .\venv\Scripts\Activate.ps1
@@ -111,27 +93,23 @@ source venv/bin/activate
 
 ---
 
-## Como saber se o ambiente virtual está ativo?
+## Verificando se o ambiente está ativo
 
-Após ativar, o terminal ficará semelhante a:
+Se o ambiente virtual estiver ativo, o terminal ficará semelhante a:
 
 ```bash
-(venv) C:\projeto-churn>
+(venv) C:\PROJETO_ML>
 ```
 
 ou
 
 ```bash
-(venv) usuario@pc:~/projeto-churn$
+(venv) usuario@pc:~/PROJETO_ML$
 ```
-
-O prefixo `(venv)` indica que o ambiente virtual está ativo.
 
 ---
 
-## Passo 4: Instalar as Dependências
-
-Com o ambiente virtual ativo, execute:
+## 4. Instalar as dependências
 
 ```bash
 pip install -r requirements.txt
@@ -139,9 +117,7 @@ pip install -r requirements.txt
 
 ---
 
-## Passo 5: Executar os Testes Unitários
-
-Para validar o funcionamento das principais funcionalidades:
+## 5. Executar os testes automatizados
 
 ```bash
 pytest tests/
@@ -149,27 +125,38 @@ pytest tests/
 
 ---
 
-## Passo 6: Executar o Pipeline Completo
+## 6. Executar o projeto
 
 ```bash
 python main.py
 ```
 
-O sistema realizará:
+ou, caso o ponto de entrada esteja dentro da pasta `src`:
 
-1. Carregamento dos dados;
-2. Engenharia de atributos (*Feature Engineering*);
-3. Pré-processamento dos dados;
-4. Separação em treino e teste;
-5. Treinamento do modelo Random Forest;
-6. Avaliação de desempenho;
-7. Salvamento do modelo treinado na pasta `models_saved/`.
+```bash
+python -m src
+```
 
 ---
 
-## Passo 7: Desativar o Ambiente Virtual
+## Fluxo de execução
 
-Ao terminar o uso do projeto:
+O pipeline executa as seguintes etapas:
+
+1. Leitura dos dados brutos (`data/raw`);
+2. Pré-processamento dos dados;
+3. Engenharia de atributos;
+4. Separação entre treino e teste;
+5. Treinamento do modelo Random Forest;
+6. Avaliação do desempenho;
+7. Salvamento do modelo em `models_saved`;
+8. Geração das métricas em `metrics`.
+
+---
+
+## Desativar o ambiente virtual
+
+Ao finalizar:
 
 ```bash
 deactivate
@@ -177,27 +164,11 @@ deactivate
 
 ---
 
-# 📚 4. Bibliotecas Utilizadas
+# 📚 Bibliotecas Utilizadas
 
-### Pandas e NumPy
-- Manipulação de dados;
-- Limpeza e transformação de tabelas;
-- Operações matemáticas e matriciais.
-
-### Scikit-Learn
-- Pré-processamento dos dados;
-- Divisão de treino e teste (*Hold-out*);
-- Implementação do algoritmo Random Forest Classifier;
-- Métricas de avaliação.
-
-### Joblib
-- Serialização e armazenamento do modelo treinado na pasta `models_saved/`.
-
-### Pytest
-- Automatização dos testes unitários do projeto.
+- **pandas** e **numpy**: manipulação e tratamento dos dados;
+- **scikit-learn**: pré-processamento, treinamento e avaliação do modelo;
+- **joblib**: serialização e salvamento do modelo treinado;
+- **pytest**: execução dos testes automatizados.
 
 ---
-
-# 🎯 Objetivo do Projeto
-
-Desenvolver um modelo de Inteligência Computacional capaz de identificar clientes com maior probabilidade de cancelamento do serviço, permitindo que empresas de telecomunicações adotem estratégias de retenção de forma proativa e baseada em dados.
