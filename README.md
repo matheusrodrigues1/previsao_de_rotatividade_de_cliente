@@ -22,24 +22,6 @@ O projeto utiliza uma base de dados que simula cenários reais de mercado, inspi
 | `gasto_proporcional_tempo` | Total gasto dividido pelos meses ativos |
 | `churn` | Variável alvo: `1` = cancelou o serviço, `0` = permaneceu ativo |
 
----
-
-# 📁 Estrutura do Projeto
-
-```text
-projeto-churn/
-│
-├── data/
-├── models_saved/
-├── tests/
-├── main.py
-├── requirements.txt
-├── README.md
-└── venv/
-```
-
----
-
 # 🚀 3. Como Executar o Projeto
 
 ## Pré-requisitos
