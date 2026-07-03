@@ -37,7 +37,7 @@ PROJETO_ML/
 ## 1. Clonar o repositório
 
 ```bash
-git clone [(https://github.com/matheusrodrigues1/previsao_de_rotatividade_de_cliente/tree/main)]
+git clone (https://github.com/matheusrodrigues1/previsao_de_rotatividade_de_cliente/tree/main)
 cd PROJETO_ML
 ```
 
