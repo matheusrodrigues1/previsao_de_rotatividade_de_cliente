@@ -37,7 +37,7 @@ PROJETO_ML/
 ## 1. Clonar o repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone [(https://github.com/matheusrodrigues1/previsao_de_rotatividade_de_cliente/tree/main)]
 cd PROJETO_ML
 ```
 
@@ -129,12 +129,6 @@ pytest tests/
 
 ```bash
 python main.py
-```
-
-ou, caso o ponto de entrada esteja dentro da pasta `src`:
-
-```bash
-python -m src
 ```
 
 ---
