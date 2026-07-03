@@ -1,7 +1,5 @@
 # Projeto de Inteligência Computacional: Predição de Churn em Telecomunicações
 
-Este projeto foi desenvolvido em estrita conformidade com as diretrizes e critérios técnicos exigidos para o desenvolvimento de projetos acadêmicos e profissionais de Inteligência Computacional.
-
 ## 1. Explicação do Problema (Contexto de Negócio)
 A rotatividade de clientes (*Churn*) é um dos maiores gargalos financeiros de empresas prestadoras de serviços de Telecomunicação. Reter um cliente antigo custa cerca de 5 vezes menos do que adquirir um cliente novo através de campanhas de publicidade. 
 
